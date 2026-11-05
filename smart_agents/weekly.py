@@ -37,7 +37,7 @@ def evaluate_and_promote(folder,state,base):
     if candidate_scores['rare_hit_at_k'] < incumbent_scores['rare_hit_at_k']:
         verdict.publish=False;verdict.reason='rare-lesson recall regression'
     if candidate_scores['max_latency_s'] > 1.5:
-        verdict.publish=False;verdict.reason='serving latency budget exceeded' 
+        verdict.publish=False;verdict.reason='serving latency budget exceeded'
     release={'model':str((folder/'training/model').resolve()),'sha256':sha256_of_dir(folder/'training/model'),
              'min_score':threshold,'scores':candidate_scores,'incumbent_scores':incumbent_scores,
              'promoted':verdict.publish,'reason':verdict.reason,'previous':previous,
