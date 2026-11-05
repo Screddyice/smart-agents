@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.superpowers/
+.env
+.env.*
+!.env.example
+state/
+data/private/
+*.safetensors
+*.gguf
+*.bin
+build/
+dist/
