@@ -81,3 +81,10 @@ def test_a_backend_failure_is_retried_not_discarded(monkeypatch, tmp_path):
     assert stats["backend_errors"] == 2
     assert stats["no_learnings"] == 0
     assert seen.ids == set(), "an outage must leave the chunk to be tried again"
+
+
+def test_uncertain_billed_judgment_is_persisted_for_review(monkeypatch,tmp_path):
+    stats,seen=_run(monkeypatch,tmp_path,_Result(skipped_reason='needs_review:uncertain_category'))
+    assert stats['pending_review']==2
+    assert len(list((tmp_path/'pending-review').glob('*.json')))==2
+    assert len(seen.ids)==2

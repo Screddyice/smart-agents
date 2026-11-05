@@ -17,7 +17,7 @@ def test_malformed_classifier_output_is_retryable():
     class Backend:
         def chat(self,messages):return SimpleNamespace(raw='upstream temporarily unavailable',error=None,model='synthetic',elapsed_ms=1)
     result=classify('Distilled verified constraint',backend=Backend(),skip_prefilter=True)
-    assert result.skipped_reason.startswith('backend_error:')
+    assert result.skipped_reason=='needs_review:invalid_classifier_output'
 
 
 def test_multiple_lessons_of_same_category_survive_replay():

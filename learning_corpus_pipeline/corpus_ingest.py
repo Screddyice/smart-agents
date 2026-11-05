@@ -106,7 +106,7 @@ def run_once(cfg: Config, *, since: datetime, limit: int | None, chunk_size: int
     """One full pass. Returns a stats dict."""
     stats = {"learnings_fetched": 0, "sessions": 0, "seen": 0, "skipped_cursor": 0,
              "classified": 0, "no_learnings": 0, "inserted": 0, "errors": 0,
-             "backend_errors": 0}
+             "backend_errors": 0, "pending_review": 0}
 
     client = _build_client(cfg)
     items = fetch_learnings(client, since=since, limit=limit,
@@ -168,6 +168,20 @@ def run_once(cfg: Config, *, since: datetime, limit: int | None, chunk_size: int
                     # exception, so it must not settle the chunk: a classifier
                     # outage would otherwise drop every row it touched,
                     # permanently and without a word.
+                    if str(result.skipped_reason).startswith("needs_review:"):
+                        # Preserve source references without copying raw source text.
+                        # Uncertain/billed calls are not automatically made again.
+                        queue=cfg.state_dir / "pending-review"
+                        queue.mkdir(parents=True,exist_ok=True,mode=0o700)
+                        record=queue / (entry.body_hash + ".json")
+                        if not record.exists():
+                            with record.open("x") as stream:
+                                json.dump({"source_ids":chunk.source_ids,"body_hash":entry.body_hash,
+                                           "source_session_id":entry.session_id,"reason":result.skipped_reason,
+                                           "status":"pending"},stream)
+                        stats["pending_review"] += 1
+                        done()
+                        continue
                     if str(result.skipped_reason).startswith("backend_error"):
                         stats["backend_errors"] += 1
                         continue

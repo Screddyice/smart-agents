@@ -33,7 +33,7 @@ class CompatibleBackend:
                 response.raise_for_status();raw=response.json()['choices'][0]['message']['content']
             return BackendResult(raw,model,int((time.monotonic()-started)*1000))
         except Exception as exc:
-            return BackendResult('',model,int((time.monotonic()-started)*1000),type(exc).__name__)
+            return BackendResult('',model,int((time.monotonic()-started)*1000),'needs_review:'+type(exc).__name__)
 
 
 class JevBackend:
@@ -59,7 +59,7 @@ class JevBackend:
             rows=[] if choice=='irrelevant' else [{'category':choice,'source':'observed','what_happened':text,'lesson':text,'tags':[]}]
             return BackendResult(json.dumps(rows),value['model'],elapsed)
         except Exception as exc:
-            return BackendResult('','jev',int((time.monotonic()-started)*1000),type(exc).__name__)
+            return BackendResult('','jev',int((time.monotonic()-started)*1000),'needs_review:'+type(exc).__name__)
 
 
 def make_backend():

@@ -87,7 +87,7 @@ def classify(
         # Backend hiccup — return empty learnings + telemetry. Caller
         # decides whether to retry on the next batch.
         return ClassifierResult(
-            skipped_reason=f"backend_error:{result.error[:80]}",
+            skipped_reason=(result.error[:100] if result.error.startswith("needs_review:") else f"backend_error:{result.error[:80]}"),
             backend_model=result.model,
             elapsed_ms=result.elapsed_ms,
         )
@@ -96,7 +96,7 @@ def classify(
     from .parser import parse_outcome
     learnings, valid = parse_outcome(result.raw)
     if not valid:
-        return ClassifierResult(skipped_reason="backend_error:invalid_classifier_output", backend_model=result.model, elapsed_ms=result.elapsed_ms)
+        return ClassifierResult(skipped_reason="needs_review:invalid_classifier_output", backend_model=result.model, elapsed_ms=result.elapsed_ms)
 
     return ClassifierResult(
         learnings=learnings,
