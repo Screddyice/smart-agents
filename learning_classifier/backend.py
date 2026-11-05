@@ -49,20 +49,12 @@ class JevBackend:
             'inefficiency':'Demonstrated wasteful approach and improvement','strategy_pivot':'Changed strategy',
             'new_info':'Verified durable operational discovery','irrelevant':'No reusable operational lesson','needs_review':'Insufficient or conflicting evidence'}}}
         request={'questions':questions,'state':{'text':text,'context':'Source is an already-distilled operational lesson. Judge category only; do not rewrite or invent evidence.'}}
-        calls=[{'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2024-11-05','capabilities':{},'clientInfo':{'name':'smart-agents','version':'0.1.0'}}},
-               {'jsonrpc':'2.0','method':'notifications/initialized'},
-               {'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'jev_decide','arguments':request}}]
         try:
-            binary=os.environ.get('SMART_AGENTS_JEV_BIN',str(Path.home()/'.local/bin/jev-mcp'))
-            env={key:os.environ[key] for key in ('PATH','HOME','OPENROUTER_API_KEY','JEV_API_KEY') if key in os.environ}
-            result=subprocess.run([binary],input='\n'.join(json.dumps(x) for x in calls)+'\n',capture_output=True,text=True,timeout=30,check=True,env=env)
-            reply=next(json.loads(line) for line in result.stdout.splitlines() if line.startswith('{') and json.loads(line).get('id')==2)
-            tool=reply['result']
-            if tool.get('isError'):raise ValueError('JEV provider failure')
-            value=tool.get('structuredContent') or json.loads(next(c['text'] for c in tool['content'] if c.get('type')=='text'))
-            answer=value['answers']['category'];probs=answer['probabilities'];ranked=sorted(probs.values(),reverse=True)
-            choice=answer['choice'];elapsed=int((time.monotonic()-started)*1000)
-            if choice=='needs_review' or ranked[0]<.80 or ranked[0]-ranked[1]<.20:
+            from smart_agents.judgments import decide,confident_choice
+            value=decide(request['state'],questions)
+            choice=confident_choice(value['answers']['category'])
+            elapsed=int((time.monotonic()-started)*1000)
+            if choice=='needs_review':
                 return BackendResult('',value['model'],elapsed,'needs_review:uncertain_category')
             rows=[] if choice=='irrelevant' else [{'category':choice,'source':'observed','what_happened':text,'lesson':text,'tags':[]}]
             return BackendResult(json.dumps(rows),value['model'],elapsed)

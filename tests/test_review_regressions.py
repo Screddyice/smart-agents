@@ -80,3 +80,14 @@ def test_release_identity_requires_loaded_hash_and_threshold():
     from smart_agents.deploy import verify_identity
     with pytest.raises(RuntimeError):verify_identity({'ok':True,'reranker_model':'old','reranker_sha256':'old','reranker_min_score':-5},{'sha256':'new','min_score':-4},'/new')
     verify_identity({'ok':True,'reranker_loaded':True,'reranker_model':'/new','reranker_sha256':'new','reranker_min_score':-4},{'sha256':'new','min_score':-4},'/new')
+
+
+def test_classifier_uses_shared_judgment_transport(monkeypatch):
+    import smart_agents.judgments as judgments
+    import learning_classifier.backend as backend
+    result={'model':'synthetic','answers':{'category':{'choice':'mistake','probabilities':{'mistake':.95,'irrelevant':.03,'needs_review':.02}}}}
+    monkeypatch.setattr(judgments,'decide',lambda state,questions:result)
+    monkeypatch.setattr(backend.subprocess,'run',lambda *a,**k: (_ for _ in ()).throw(AssertionError('bypassed shared transport')))
+    response=backend.JevBackend().chat([{'role':'user','content':'Synthetic verified archive fix.'}])
+    assert response.error is None
+    assert json.loads(response.raw)[0]['category']=='mistake'
