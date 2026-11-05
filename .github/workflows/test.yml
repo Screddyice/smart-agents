@@ -1,0 +1,28 @@
+name: Verify
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17
+        env:
+          POSTGRES_DB: smart_agents
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: synthetic-test-only
+        ports: ['55439:5432']
+        options: >-
+          --health-cmd 'pg_isready -U postgres -d smart_agents'
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked --extra dev --extra rerank
+      - run: make test
+      - run: make integration
+        env:
+          SMART_AGENTS_TEST_DSN: postgresql://postgres:synthetic-test-only@127.0.0.1:55439/smart_agents
+      - run: make check
+      - run: make build

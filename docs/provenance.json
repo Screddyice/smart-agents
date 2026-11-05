@@ -1,0 +1,186 @@
+{
+  "source_repository": "https://github.com/Screddyice/shawn-corpus",
+  "source_revision": "072fbb94d0f4c0469624579a7cd7e2e1b31eab56",
+  "files": [
+    {
+      "source": "corpus_api/rerank.py",
+      "sha256": "0a081c7d639aa8f91f548cc3aa0420271214a50c27bea9986202bbc207174943",
+      "target": "corpus_api/rerank.py"
+    },
+    {
+      "source": "corpus_api/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target": "corpus_api/__init__.py"
+    },
+    {
+      "source": "corpus_api/gate.py",
+      "sha256": "235d1717b16e52e13b88abfb9237145fe8c33206ff0a71f159020cf1d455d42d",
+      "target": "corpus_api/gate.py"
+    },
+    {
+      "source": "corpus_api/main.py",
+      "sha256": "ccd86f21083e19b811b9516dd324304c43d413f22858d3d6dc80f87587dd6f95",
+      "target": "corpus_api/main.py"
+    },
+    {
+      "source": "corpus_api/rank.py",
+      "sha256": "ccab01d4d110096f653c1a0f39ea121d723468fb9eb1c06c4878c8faefebdb55",
+      "target": "corpus_api/rank.py"
+    },
+    {
+      "source": "shawn_corpus/rerank/triples.py",
+      "sha256": "7e9580c39f75cd3cb33cda3b97caf4ba26f806fd1306799eefead87f1610e13d",
+      "target": "smart_agents/rerank/triples.py"
+    },
+    {
+      "source": "shawn_corpus/rerank/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target": "smart_agents/rerank/__init__.py"
+    },
+    {
+      "source": "shawn_corpus/rerank/sweep_threshold.py",
+      "sha256": "9dc31cb53540d989c850f3b45a492708b19b686254e3ba1793e7af77f845d780",
+      "target": "smart_agents/rerank/sweep_threshold.py"
+    },
+    {
+      "source": "shawn_corpus/rerank/dataset.py",
+      "sha256": "688deda7e58c1514c2c9fd9c6623a0f5bb95f516f95fb559135923e367d791b1",
+      "target": "smart_agents/rerank/dataset.py"
+    },
+    {
+      "source": "shawn_corpus/rerank/cross_encoder.py",
+      "sha256": "9a63b9fb59e0fcf922d5700c8b3f79861693e23f9d3c8e6e566990b5b8b37a04",
+      "target": "smart_agents/rerank/cross_encoder.py"
+    },
+    {
+      "source": "shawn_corpus/rerank/labeler.py",
+      "sha256": "2b6ca043454f863abf100eae2a0d21d69438500afd0c759bd5114918498c0efd",
+      "target": "smart_agents/rerank/labeler.py"
+    },
+    {
+      "source": "shawn_corpus/rerank/gate.py",
+      "sha256": "34b00ace7fa9c87ab9602356dc427e3ada7a31adee0cad8fb9d3baf5ecf859f9",
+      "target": "smart_agents/rerank/gate.py"
+    },
+    {
+      "source": "shawn_corpus/eval/embed.py",
+      "sha256": "a44fe6d12450db2a3400838ab1fe564a99c7341490b6f2f1c1cdc0f104381624",
+      "target": "smart_agents/eval/embed.py"
+    },
+    {
+      "source": "shawn_corpus/eval/pools.py",
+      "sha256": "3af38b78f1eac3d7af33154ec4afb3b6a57e91ce7c3182de885e0299fd824b5d",
+      "target": "smart_agents/eval/pools.py"
+    },
+    {
+      "source": "shawn_corpus/eval/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target": "smart_agents/eval/__init__.py"
+    },
+    {
+      "source": "shawn_corpus/eval/build_v2.py",
+      "sha256": "ce981fcb260435d9d84aca7ea6d266d20d8ee3b8fa001772fcb6426a85664724",
+      "target": "smart_agents/eval/build_v2.py"
+    },
+    {
+      "source": "shawn_corpus/eval/score.py",
+      "sha256": "16e76b1b839bde6780a3d6677faa185f35e66abaa46f82a6b0579e3d833300a5",
+      "target": "smart_agents/eval/score.py"
+    },
+    {
+      "source": "shawn_corpus/eval/rerank_score.py",
+      "sha256": "ef55fae465db4a76657309a86a05530ba33661516ba050f42e8693f1302ae588",
+      "target": "smart_agents/eval/rerank_score.py"
+    },
+    {
+      "source": "shawn_corpus/consolidation/learnings.py",
+      "sha256": "5d178b7be94c0a336fa043897bb4ee76781d08e6c9e184cb0f775e5583ff22ce",
+      "target": "smart_agents/consolidation/learnings.py"
+    },
+    {
+      "source": "learning-corpus/pipeline/learning_corpus_pipeline/__init__.py",
+      "sha256": "1a31f78a03a84ef6fd362778a94336053f330ef066cd22d3cc50440869d7c535",
+      "target": "learning_corpus_pipeline/__init__.py"
+    },
+    {
+      "source": "learning-corpus/pipeline/learning_corpus_pipeline/corpus_ingest.py",
+      "sha256": "8bf07f480d1397230cc39d68a4b793ea475d2894b73551bca6b22a6613592826",
+      "target": "learning_corpus_pipeline/corpus_ingest.py"
+    },
+    {
+      "source": "learning-corpus/pipeline/learning_corpus_pipeline/cmem_source.py",
+      "sha256": "a96cdb22a9f4f75984e08fb8aeb9c274a9188d83bf1e83044d89209cdc8820dd",
+      "target": "learning_corpus_pipeline/cmem_source.py"
+    },
+    {
+      "source": "learning-corpus/pipeline/learning_corpus_pipeline/learning_items.py",
+      "sha256": "feca0aa74a66c10a73a022b1bcbc6f460bc20e4a984df36cd1831a88a19d4f64",
+      "target": "learning_corpus_pipeline/learning_items.py"
+    },
+    {
+      "source": "learning-corpus/pipeline/learning_corpus_pipeline/cursor.py",
+      "sha256": "e92128b03e508cad8adeb204bb470391a7effe6f74a23972de5a34be9e0585eb",
+      "target": "learning_corpus_pipeline/cursor.py"
+    },
+    {
+      "source": "learning-corpus/pipeline/learning_corpus_pipeline/writer_rds.py",
+      "sha256": "950e15abc987ed74ee80163530f76da84d81816078d73e471846a564f6601022",
+      "target": "learning_corpus_pipeline/writer_rds.py"
+    },
+    {
+      "source": "learning-corpus/pipeline/learning_corpus_pipeline/embedding.py",
+      "sha256": "ab2a0dd1e24aa1e4879c527340d097d0ffc8635bce6cafeb9bb97798f0022fa5",
+      "target": "learning_corpus_pipeline/embedding.py"
+    },
+    {
+      "source": "learning-corpus/pipeline/learning_corpus_pipeline/config.py",
+      "sha256": "a238e9346c33b5587e859bc89169779bd3fc84ff2f162dd1ed67536951e289f8",
+      "target": "learning_corpus_pipeline/config.py"
+    },
+    {
+      "source": "learning-corpus/pipeline/learning_corpus_pipeline/hyperswarm_source.py",
+      "sha256": "9e6bd00d8c6a00338b7e711f26bb4d1d0a0c334a0de89a4195b47bb599de4bd6",
+      "target": "learning_corpus_pipeline/hyperswarm_source.py"
+    },
+    {
+      "source": "learning-corpus/classifier/learning_classifier/prefilter.py",
+      "sha256": "e0d34945878cd23c354fd49ddd25280712bed63533fac527728934899b943cbc",
+      "target": "learning_classifier/prefilter.py"
+    },
+    {
+      "source": "learning-corpus/classifier/learning_classifier/backend.py",
+      "sha256": "4ae2262d016551e219970316081e3164e7e4b1d2493edeb40e2443ad43e461ac",
+      "target": "learning_classifier/backend.py"
+    },
+    {
+      "source": "learning-corpus/classifier/learning_classifier/models.py",
+      "sha256": "c133c95d26fa4e810ea77a553c791d6a9d70dffa9dd0e86a79d51efb99874501",
+      "target": "learning_classifier/models.py"
+    },
+    {
+      "source": "learning-corpus/classifier/learning_classifier/__init__.py",
+      "sha256": "571fb2f9d1d151f25cdffa3c8ff6a1f4e03cae2c264bc5a9ed5d37c5f56cd2f1",
+      "target": "learning_classifier/__init__.py"
+    },
+    {
+      "source": "learning-corpus/classifier/learning_classifier/parser.py",
+      "sha256": "9b00c1c1c53f7856f5d81f8e17f3da0e423f359a3718824eb24e18919e84e95a",
+      "target": "learning_classifier/parser.py"
+    },
+    {
+      "source": "learning-corpus/classifier/learning_classifier/pipeline.py",
+      "sha256": "ab3606a209d6092cb247965afecff2beadcf6203991aba7554e57c5935d8ba9e",
+      "target": "learning_classifier/pipeline.py"
+    },
+    {
+      "source": "learning-corpus/classifier/learning_classifier/prompt.py",
+      "sha256": "21bfd076142b3ad2e6bbc0ba770570913d8c14f283222f515e4a310d98263a07",
+      "target": "learning_classifier/prompt.py"
+    },
+    {
+      "source": "learning-corpus/trainer/scripts/train_rerank.py",
+      "sha256": "ece35ece3c27c827abd82029529f6ba3537030fea4558cdeba04b037e60e0329",
+      "target": "smart_agents/train_rerank.py"
+    }
+  ]
+}

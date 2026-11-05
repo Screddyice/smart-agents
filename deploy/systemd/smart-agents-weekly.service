@@ -1,0 +1,9 @@
+[Unit]
+Description=Smart Agents weekly local reranker training
+[Service]
+Type=oneshot
+WorkingDirectory=%h/smart-agents
+EnvironmentFile=%h/.config/smart-agents/corpus.env
+ExecStart=%h/smart-agents/.venv/bin/smart-agents weekly
+Nice=10
+NoNewPrivileges=true

@@ -1,0 +1,15 @@
+# Local backend workflow: image names the installed shell, not a Docker image.
+# Portable source checks. Database integration is a separately documented local
+# check because the host-selected isolated DSN is intentionally not implicit.
+steps:
+  python:
+    image: bash
+    commands:
+      - uv sync --locked --extra dev --extra rerank
+      - make test
+      - make check
+      - make build
+  node-bridge:
+    image: bash
+    commands:
+      - node --test integrations/node/bridge.test.mjs

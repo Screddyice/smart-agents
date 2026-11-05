@@ -1,0 +1,4 @@
+{"type": "object",
+ "properties": {"relevant_ids": {"type": "array", "items": {"type": "integer"}},
+                "reason": {"type": "string"}},
+ "required": ["relevant_ids", "reason"], "additionalProperties": false}

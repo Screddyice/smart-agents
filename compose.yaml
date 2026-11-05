@@ -1,0 +1,18 @@
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_DB: smart_agents
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: synthetic-test-only
+    ports:
+      - '127.0.0.1:55439:5432'
+    volumes:
+      - smart-agents-dev-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d smart_agents']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  smart-agents-dev-db:

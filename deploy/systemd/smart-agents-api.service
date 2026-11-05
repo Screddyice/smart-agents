@@ -1,0 +1,14 @@
+[Unit]
+Description=Smart Agents operational lesson retrieval
+After=network-online.target
+[Service]
+Type=simple
+User=smart-agents
+WorkingDirectory=/opt/smart-agents/current
+EnvironmentFile=/etc/smart-agents/corpus.env
+ExecStart=/opt/smart-agents/venv/bin/uvicorn corpus_api.main:app --host 127.0.0.1 --port 8210
+Restart=on-failure
+NoNewPrivileges=true
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target

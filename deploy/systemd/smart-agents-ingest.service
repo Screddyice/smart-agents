@@ -1,0 +1,13 @@
+[Unit]
+Description=Smart Agents distilled lesson ingestion
+After=network-online.target
+[Service]
+Type=simple
+WorkingDirectory=%h/smart-agents
+EnvironmentFile=%h/.config/smart-agents/corpus.env
+ExecStart=%h/smart-agents/.venv/bin/corpus-ingest --poll 900
+Restart=on-failure
+RestartSec=30
+NoNewPrivileges=true
+[Install]
+WantedBy=default.target

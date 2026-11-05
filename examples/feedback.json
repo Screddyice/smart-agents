@@ -1,0 +1,1 @@
+{"lesson_id":1,"task":"Retry the synthetic archive with a path containing a space","outcome":"applied_successfully","evidence":"The archive-content assertion passed.","source_reference":"synthetic-demo/test_archive"}

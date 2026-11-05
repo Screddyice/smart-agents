@@ -1,0 +1,1 @@
+{"what_happened":"A synthetic archive command failed when its temporary output path contained a space.","correction":"Quote the output path before archiving, then inspect archive contents to verify success.","agent_id":"example-agent","source":"self","project":"synthetic-demo","source_session_id":"example-session"}
