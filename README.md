@@ -41,6 +41,8 @@ Connect an agent with this stdio MCP entry (use absolute paths):
 
 Install the [agent instructions](examples/agent-instructions.md) in the host's applicable instruction file. MCP availability and successful source capture are separate checks.
 
+For a privately paired Claude-Mem replica, see [CMEM ingestion with JEV and read-only recall](docs/capture.md#paired-cmem-replica-and-read-only-recall).
+
 ## Verify
 
 ```sh

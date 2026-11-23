@@ -18,8 +18,10 @@ dev = ["pytest>=8,<9", "pytest-asyncio>=0.23,<2", "respx>=0.22,<1", "build>=1,<2
 
 [project.scripts]
 corpus-ingest = "learning_corpus_pipeline.corpus_ingest:main"
+corpus-ingest-cmem-replica = "learning_corpus_pipeline.cmem_replica_ingest:main"
 smart-agents = "smart_agents.cli:main"
 smart-agents-mcp = "smart_agents.mcp:main"
+smart-agents-cmem-mcp = "smart_agents.cmem_recall:main"
 
 [tool.setuptools.packages.find]
 include = ["smart_agents*", "corpus_api*", "learning_classifier*", "learning_corpus_pipeline*"]
