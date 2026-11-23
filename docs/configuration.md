@@ -16,6 +16,7 @@
 | `LEARNING_CLASSIFIER_BACKEND` | Explicit `compatible`/`jev`; disabled by default |
 | `SMART_AGENTS_CLASSIFIER_URL`, `SMART_AGENTS_CLASSIFIER_MODEL`, `SMART_AGENTS_CLASSIFIER_KEY` | Explicit tool-less chat-completions provider configuration |
 | `SMART_AGENTS_JEV_BIN` | Installed typed JEV stdio adapter, default `~/.local/bin/jev-mcp` |
+| `SMART_AGENTS_CMEM_DB`, `SMART_AGENTS_MEDIA_GATE_LOG`, `SMART_AGENTS_MEDIA_UPLOAD_AT` | claude-mem database, decision log and JEV threshold for the [screenshot upload gate](media-gate.md) |
 | `SMART_AGENTS_LABEL_BUDGET_USD` | Stop further labeling calls after the recorded budget is reached; provider hard spending limits remain authoritative |
 | `CMEM_PRO_TOKEN`, `CMEM_MCP_URL` | Distilled memory source credentials and endpoint |
 | `SMART_AGENTS_MIN_FREE_BYTES` | Minimum free space before local training, default 2 GiB |

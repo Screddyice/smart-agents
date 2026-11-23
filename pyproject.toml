@@ -20,6 +20,7 @@ dev = ["pytest>=8,<9", "pytest-asyncio>=0.23,<2", "respx>=0.22,<1", "build>=1,<2
 corpus-ingest = "learning_corpus_pipeline.corpus_ingest:main"
 smart-agents = "smart_agents.cli:main"
 smart-agents-mcp = "smart_agents.mcp:main"
+smart-agents-media-gate = "smart_agents.media_gate:main"
 
 [tool.setuptools.packages.find]
 include = ["smart_agents*", "corpus_api*", "learning_classifier*", "learning_corpus_pipeline*"]
