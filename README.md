@@ -63,6 +63,7 @@ Unit tests use deterministic providers. Database tests prove persistence and API
 - [Capture and source coverage](docs/capture.md), [host coverage matrix](docs/coverage.md)
 - [Retrieval and API/MCP reference](docs/retrieval.md)
 - [Weekly training and evaluation](docs/training.md)
+- [Screenshot upload gate for claude-mem](docs/media-gate.md)
 - [Operations and runtime cutover](docs/operations.md), [cutover checklist](docs/cutover.md)
 - [References and source provenance](docs/references.md)
 - [Security](SECURITY.md), [contributing](CONTRIBUTING.md)
